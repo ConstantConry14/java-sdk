@@ -27,7 +27,9 @@ public class DocumentAnalysis extends GenericModel {
   /**
    * Gets the tones.
    *
-   * An array of `ToneScore` objects that provides the results of the analysis for each qualifying tone of the document. The array includes results for any tone whose score is at least 0.5. The array is empty if no tone has a score that meets this threshold.
+   * An array of `ToneScore` objects that provides the results of the analysis for each qualifying tone of the
+   * document. The array includes results for any tone whose score is at least 0.5. The array is empty if no tone has
+   * a score that meets this threshold.
    *
    * @return the tones
    */
@@ -38,7 +40,8 @@ public class DocumentAnalysis extends GenericModel {
   /**
    * Gets the warning.
    *
-   * A warning message if the overall content exceeds 128 KB or contains more than 1000 sentences. The service analyzes only the first 1000 sentences for document-level analysis and the first 100 sentences for sentence-level analysis.
+   * A warning message if the overall content exceeds 128 KB or contains more than 1000 sentences. The service analyzes
+   * only the first 1000 sentences for document-level analysis and the first 100 sentences for sentence-level analysis.
    *
    * @return the warning
    */

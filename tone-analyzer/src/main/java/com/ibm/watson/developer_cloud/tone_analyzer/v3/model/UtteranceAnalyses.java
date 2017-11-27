@@ -40,7 +40,8 @@ public class UtteranceAnalyses extends GenericModel {
   /**
    * Gets the warning.
    *
-   * A warning message if the content contains more than 50 utterances. The service analyzes only the first 50 utterances.
+   * A warning message if the content contains more than 50 utterances. The service analyzes only the first 50
+   * utterances.
    *
    * @return the warning
    */

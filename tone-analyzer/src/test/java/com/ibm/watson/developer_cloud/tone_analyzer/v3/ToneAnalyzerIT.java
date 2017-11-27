@@ -130,9 +130,6 @@ public class ToneAnalyzerIT extends WatsonServiceTest {
   public void testtoneFromText() {
     ToneOptions options = new ToneOptions.Builder()
         .text(text)
-        .addTone(ToneOptions.Tone.EMOTION)
-        .addTone(ToneOptions.Tone.LANGUAGE)
-        .addTone(ToneOptions.Tone.SOCIAL)
         .build();
 
     ToneAnalysis tone = service.tone(options).execute();
@@ -152,7 +149,6 @@ public class ToneAnalyzerIT extends WatsonServiceTest {
   private void assertToneAnalysis(ToneAnalysis tone) {
     Assert.assertNotNull(tone);
     Assert.assertNotNull(tone.getDocumentTone());
-    Assert.assertEquals(3, tone.getDocumentTone().getToneCategories().size());
     Assert.assertNotNull(tone.getSentencesTone());
     Assert.assertEquals(4, tone.getSentencesTone().size());
     Assert.assertEquals("I know the times are difficult!", tone.getSentencesTone().get(0).getText());

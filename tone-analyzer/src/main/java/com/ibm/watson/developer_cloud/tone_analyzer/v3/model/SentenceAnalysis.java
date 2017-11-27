@@ -30,7 +30,8 @@ public class SentenceAnalysis extends GenericModel {
   /**
    * Gets the sentenceId.
    *
-   * The unique identifier of a sentence of the input content. The first sentence has ID 0, and the ID of each subsequent sentence is incremented by one.
+   * The unique identifier of a sentence of the input content. The first sentence has ID 0, and the ID of each
+   * subsequent sentence is incremented by one.
    *
    * @return the sentenceId
    */
@@ -52,7 +53,9 @@ public class SentenceAnalysis extends GenericModel {
   /**
    * Gets the tones.
    *
-   * An array of `ToneScore` objects that provides the results of the analysis for each qualifying tone of the sentence. The array includes results for any tone whose score is at least 0.5. The array is empty if no tone has a score that meets this threshold.
+   * An array of `ToneScore` objects that provides the results of the analysis for each qualifying tone of the
+   * sentence. The array includes results for any tone whose score is at least 0.5. The array is empty if no tone has
+   * a score that meets this threshold.
    *
    * @return the tones
    */

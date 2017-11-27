@@ -29,7 +29,8 @@ public class ToneScore extends GenericModel {
   /**
    * Gets the score.
    *
-   * The score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the tone is perceived in the content.
+   * The score for the tone in the range of 0.5 to 1. A score greater than 0.75 indicates a high likelihood that the
+   * tone is perceived in the content.
    *
    * @return the score
    */
@@ -40,7 +41,9 @@ public class ToneScore extends GenericModel {
   /**
    * Gets the toneId.
    *
-   * The unique, non-localized identifier of the tone. The service can return results for the following tone IDs: `anger`, `fear`, `joy`, and `sadness` (emotional tones); `analytical`, `confident`, and `tentative` (language tones). The service returns results only for tones whose scores meet a minimum threshold of 0.5.
+   * The unique, non-localized identifier of the tone. The service can return results for the following tone IDs:
+   * `anger`, `fear`, `joy`, and `sadness` (emotional tones); `analytical`, `confident`, and `tentative`
+   * (language tones). The service returns results only for tones whose scores meet a minimum threshold of 0.5.
    *
    * @return the toneId
    */
