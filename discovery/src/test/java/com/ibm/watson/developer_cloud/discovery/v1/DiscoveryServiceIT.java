@@ -810,7 +810,7 @@ public class DiscoveryServiceIT extends WatsonServiceTest {
 
     WaitFor.Condition documentAccepted =
         new WaitForDocumentAccepted(environmentId, collectionId, createResponse.getDocumentId());
-    WaitFor.waitFor(documentAccepted, 5, TimeUnit.SECONDS, 500);
+    WaitFor.waitFor(documentAccepted, 10, TimeUnit.SECONDS, 500);
 
     QueryOptions queryOptions = new QueryOptions.Builder(environmentId, collectionId).build();
     QueryResponse queryResponse = discovery.query(queryOptions).execute();
@@ -833,10 +833,14 @@ public class DiscoveryServiceIT extends WatsonServiceTest {
   public void getDocumentIsSuccessful() {
     Collection collection = createTestCollection();
     String collectionId = collection.getCollectionId();
-    DocumentAccepted documentAccepted = createTestDocument(collectionId);
+    DocumentAccepted testDocument = createTestDocument(collectionId);
 
+    String documentId = testDocument.getDocumentId();
+    WaitFor.Condition documentAccepted =
+        new WaitForDocumentAccepted(environmentId, collectionId, documentId);
+    WaitFor.waitFor(documentAccepted, 10, TimeUnit.SECONDS, 500);
     GetDocumentStatusOptions getOptions =
-        new GetDocumentStatusOptions.Builder(environmentId, collectionId, documentAccepted.getDocumentId()).build();
+        new GetDocumentStatusOptions.Builder(environmentId, collectionId, documentId).build();
     DocumentStatus getResponse = discovery.getDocumentStatus(getOptions).execute();
 
     assertEquals(DocumentStatus.Status.AVAILABLE, getResponse.getStatus());
@@ -928,7 +932,10 @@ public class DiscoveryServiceIT extends WatsonServiceTest {
   public void getCollectionFieldsIsSuccessful() {
     Collection collection = createTestCollection();
     String collectionId = collection.getCollectionId();
-    createTestDocument(collectionId);
+    DocumentAccepted testDocument = createTestDocument(collectionId);
+    WaitFor.Condition waitForDocumentAccepted =
+        new WaitForDocumentAccepted(environmentId, collectionId, testDocument.getDocumentId());
+    WaitFor.waitFor(waitForDocumentAccepted, 10, TimeUnit.SECONDS, 500);
 
     ListCollectionFieldsOptions getOptions =
         new ListCollectionFieldsOptions.Builder(environmentId, collectionId).build();
